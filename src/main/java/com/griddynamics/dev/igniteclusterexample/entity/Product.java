@@ -3,9 +3,10 @@ package com.griddynamics.dev.igniteclusterexample.entity;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.apache.ignite.cache.query.annotations.QuerySqlField;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Product {
+public class Product implements Serializable {
 
     @QuerySqlField(name = "uniq_id", index = true)
     @JsonProperty("uniq_id")
