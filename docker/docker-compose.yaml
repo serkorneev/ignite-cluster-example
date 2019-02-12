@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  app:
+    image: serkorneev/ignite-cluster-example
+    depends_on:
+      - ignite
+  ignite:
+    image: apacheignite/ignite
+    volumes:
+      - "../src/main/resources/ignite-config.xml:/ignite-config.xml"
+    environment:
+      - CONFIG_URI=examples/config/example-ignite.xml
+    deploy:
+      mode: replicated
+      replicas: 3
